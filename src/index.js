@@ -5,13 +5,15 @@ import PostsIndex from './containers/PostsIndex';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './store/reducer';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers';
+import promise from 'redux-promise';
 
-const store = createStore(reducer);
+
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore)
 
 ReactDOM.render(
- <Provider store={store}>
+ <Provider store={createStoreWithMiddleware(reducers)}>
   <BrowserRouter>
    <div>
     <Route path="/" component={PostsIndex} />

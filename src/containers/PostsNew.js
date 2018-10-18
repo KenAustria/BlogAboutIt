@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 class PostsNew extends Component {
   renderField(field) {
+    const { meta: {touched, error}} = field;
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+
     return (
-      <div className="form-group">
-      <label>{field.label}</label>
-      <input
-        type="text"
-        className="form-control"
-        {...field.input}
-      />
-      {field.meta.error}
+      <div className={className}>
+        <label>{field.label}</label>
+        <input
+          type="text"
+          className="form-control"
+          {...field.input}
+        />  
+        <div className="text-help">
+          {touched ? error : ''}
+        </div>
       </div>
     );
   }
 
-// display validation messages inside PostsNew component with field.meta.error
-// meta.error property is automatically added to the field object from our validate function 
-// reference to have error show up
-
-
   validate(values) {
     let errors = {};
-    
+
     if(!values.title) {
       errors.title = "Enter a title";
     }
@@ -48,6 +49,7 @@ class PostsNew extends Component {
         <Field label="Title" name="title" component={this.renderField} />
         <Field label="Categories" name="tags" component={this.renderField} />
         <Field label="Content" name="content" component={this.renderField} />
+        <Link to="/">Cancel</Link>
         <button>Submit</button>
       </form>
     );

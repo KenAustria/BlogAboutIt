@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions/index";
 import { bindActionCreators } from "redux";
+import _ from "lodash";
 
 class PostsIndex extends Component {
   componentDidMount() {

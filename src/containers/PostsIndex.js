@@ -6,41 +6,42 @@ import { Link } from 'react-router-dom';
 import _ from "lodash";
 
 class PostsIndex extends Component {
-  componentDidMount() {
-    this.props.fetchPosts();
-  }
+	componentDidMount() {
+		this.props.fetchPosts();
+	}
 
-  renderPosts = () => {
-    return _.map(this.props.post, post => {
-      return (
-        <li className="list-group-item" key={post.id}>
-          {post.title}
-        </li>
-      );
-    });
-  };
+	renderPosts = () => {
+		return _.map(this.props.post, post => {
+			return (
+				<li className="list-group-item" key={post.id}>
+					{post.title}
+				</li>
+			);
+		});
+	};
 
-  render() {
-    return (
-      <div>
-        <Link to="/posts/new">Add Post</Link>
-        <li className="list-group">{this.renderPosts()}</li>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<h1>Blog About It</h1>
+				<Link to="/posts/new">Add Post</Link>
+				<ul>{this.renderPosts()}</ul>
+			</div>
+		);
+	}
 }
 
 function mapStateToProps(state) {
-  return {
-    posts: state.posts
-  };
+	return {
+		posts: state.posts
+	};
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPosts }, dispatch);
+	return bindActionCreators({ fetchPosts }, dispatch);
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(PostsIndex);

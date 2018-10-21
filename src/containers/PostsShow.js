@@ -9,9 +9,15 @@ class PostsShow extends Component {
 	}
 
 	render() {
+		const post = this.props;
+		if (!post) {
+			return <div>Loading..</div>
+		}
 		return (
 			<div>
-			 Posts Show
+			 <h1>Title {post.title}</h1>
+			 <h3>Category {post.category}</h3>
+			 <h3>Content {post.content}</h3>
 			</div>
 		 );
  	}

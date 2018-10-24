@@ -35,10 +35,15 @@ class PostsIndex extends Component {
 				<div className="index_header">
 					<div className="index_title">Blog About It</div>
 					<div className="index_description">Technology Enthusiast Community</div>
-						<Button variant="outlined" color="primary">
-							<Link to="/posts/new" className="add_button">Add Post</Link>
+						<Button variant="outlined" color="primary" className="add_button">
+							<Link to="/posts/new" className="add_link">Add Post</Link>
 						</Button>
 				</div>
+				{/* <div className="index_list">
+					<List>
+						<ul>{this.renderPosts()}</ul>
+					</List>
+				</div> */}
 			</div>
 		);
 	}

@@ -41,6 +41,24 @@ code {
   font-family: 'Lato', sans-serif;
   font-size: 70px;
   font-weight: bold;
+
+  animation-name: moveInLeft;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	80% {
+		transform: translateX(10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
 }
 
 .index_description {
@@ -48,8 +66,41 @@ code {
   font-weight: 600;
   text-transform: uppercase;
   margin: 20px;
+
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	80% {
+		transform: translateX(-10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 .add_button {
+  animation: moveInBottom .5s ease-out .75s;
+	animation-fill-mode: backwards;
+}
+
+.add_link {
   text-decoration: none;
+}
+
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

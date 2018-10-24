@@ -11,26 +11,16 @@ body {
   background: linear-gradient(to left, #eaecc6, #4cb8c4);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
+/* INDEX HEADER */
 .index_group {
   border: 5px solid #eee;
   border-radius: 25px;
   box-shadow: 0 8px 9px #ccc;
   box-sizing: border-box;
-  display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   width: 90%;
   margin: 5%;
-}
-
-.index_header {
   text-align: center;
-  padding: 20px;
 }
 
 .index_title {
@@ -66,7 +56,7 @@ code {
   font-weight: 600;
   text-transform: uppercase;
   margin: 20px;
-
+  text-align: center;
   animation: moveInRight 1s ease-out;
 }
 
@@ -89,7 +79,7 @@ code {
 	animation-fill-mode: backwards;
 }
 
-.add_link {
+.remove_link {
   text-decoration: none;
 }
 
@@ -103,4 +93,19 @@ code {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+/* INDEX LIST */
+.list_item {
+  text-align: center;
+  width: inherit;
+  font-size: 30px;
+  font-weight: lighter;
+  color: #a790a5;
+}
+
+.list_item_text {
+  border: solid 1px #eee;
+  text-align: center;
+  text-transform: uppercase;
 }

@@ -4,7 +4,6 @@ import { fetchPosts } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -18,10 +17,10 @@ class PostsIndex extends Component {
 	renderPosts = () => {
 		return _.map(this.props.posts, post => {
 			return (
-				<Link to={`/posts/${post.id}`}>
+				<Link to={`/posts/${post.id}`} className="remove_link">
 					<List>
-						<ListItem key={post.id}>
-							<ListItemText primary={post.title}/>
+						<ListItem key={post.id} className="list_item">
+							<ListItemText primary={post.title} className="list_item_text"/>
 						</ListItem>
 					</List>
 				</Link>
@@ -32,18 +31,12 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div className="index_group">
-				<div className="index_header">
-					<div className="index_title">Blog About It</div>
-					<div className="index_description">Technology Enthusiast Community</div>
-						<Button variant="outlined" color="primary" className="add_button">
-							<Link to="/posts/new" className="add_link">Add Post</Link>
-						</Button>
-				</div>
-				{/* <div className="index_list">
-					<List>
-						<ul>{this.renderPosts()}</ul>
-					</List>
-				</div> */}
+				<div className="index_title">Blog About It</div>
+				<div className="index_description">Technology Enthusiast Community</div>
+				<Button variant="outlined" color="primary" className="add_button">
+					<Link to="/posts/new" className="remove_link">Add Post</Link>
+				</Button>
+				{this.renderPosts()}
 			</div>
 		);
 	}

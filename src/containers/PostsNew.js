@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import { connect } from "react-redux";
 import { createPost } from "../actions/index";
 import { bindActionCreators } from "redux";
@@ -8,14 +9,37 @@ import { bindActionCreators } from "redux";
 class PostsNew extends Component {
 	renderField(field) {
 		const { meta: {touched, error}} = field;
-		const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+		const className = `form_group_field ${touched && error ? 'invalid_feedback' : ''}`;
 
 		return (
 			<div className={className}>
-				<label>{field.label}</label>
+				<div className="new_labels">
+					<label>{field.label}</label>
+				</div>
 				<input
 					type="text"
-					className="form-control"
+					className="form_input"
+					{...field.input}
+				/>
+				<div className="text-help">
+					{touched ? error : ''}
+				</div>
+			</div>
+		);
+	}
+
+	renderFieldArea(field) {
+		const { meta: {touched, error}} = field;
+		const className = `form_group_field ${touched && error ? 'invalid_feedback' : ''}`;
+
+		return (
+			<div className={className}>
+				<div className="new_labels">
+					<label>{field.label}</label>
+				</div>
+				<textarea
+					type="text"
+					className="form_input"
 					{...field.input}
 				/>
 				<div className="text-help">
@@ -35,13 +59,25 @@ class PostsNew extends Component {
 		const { handleSubmit } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
-				<Field label="Title for Review" name="title" component={this.renderField} />
-				<Field label="Categories" name="categories" component={this.renderField} />
-				<Field label="Review Content" name="content" component={this.renderField} />
-				<Link to="/">Cancel</Link>
-				<button type="submit">Submit</button>
-			</form>
+			<div className="new_group">
+				<div className="new_title">Create New</div>
+					<div className="form_group">
+						<form onSubmit={handleSubmit(this.onSubmit.bind(this))} >
+							<Field label="Title" name="title" component={this.renderField} />
+							<Field label="Categories" name="categories" component={this.renderField} />
+							<Field label="Content" name="content" component={this.renderFieldArea} />
+						</form>
+						<div className="new_buttons">
+							<Button variant="outlined" color="secondary">
+								<Link to="/" className="remove_link">Cancel</Link>
+							</Button>
+							<div className="divider"></div>
+							<Button variant="outlined" color="primary" type="submit">
+								<Link to="/" className="remove_link">Submit</Link>
+							</Button>
+						</div>
+					</div>
+			</div>
 		);
 	}
 }

@@ -30,7 +30,7 @@ class PostsIndex extends Component {
 				<div className="index_description">Technology Enthusiast Community</div>
 				{this.renderPosts()}
 				<div className="index_footer">
-					<Button variant="outlined" color="primary" className="add_button">
+					<Button variant="outlined" className="add_button">
 						<Link to="/posts/new" className="remove_link">Add Post</Link>
 					</Button>	
 				</div>

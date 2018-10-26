@@ -12,7 +12,7 @@ body {
   text-align: center;
 }
 
-/* INDEX HEADER */
+/* INDEX */
 .index_group {
   border: 5px solid #eee;
   border-radius: 25px;
@@ -109,7 +109,7 @@ body {
   padding: 10px 15px;
 }
 
-/* POSTS NEW */
+/* NEW */
 .new_group {
   border: 5px solid #eee;
   border-radius: 25px;
@@ -144,13 +144,15 @@ body {
 
 .form_input {
   width: 100%;
-  line-height: 2.2;
+  line-height: 1.5;
   font-size: 15px;
-  padding: 2px;
+  padding: 0px 5px;
 }
 
 .new_buttons {
   margin: 10px;
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
 }
 
 .divider {
@@ -165,4 +167,47 @@ body {
 
 .new_labels {
   margin: 0px 0px 10px 0px;
+}
+
+/* SHOW */
+.show_group {
+  border: 5px solid #eee;
+  border-radius: 25px;
+  box-shadow: 0 8px 9px #ccc;
+  width: 55%;
+  margin: 5% auto;
+}
+
+.show_title {
+  color: white;
+  text-align: left;
+  margin: 10px 26px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  font-weight: lighter;
+
+  animation-name: moveInLeft;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+}
+
+.show_categories {
+  color: #a790a5;
+  text-transform: uppercase;
+  margin: 10px 26px;
+  text-align: left;
+  font-weight: lighter;
+  animation: moveInRight 1s ease-out;
+}
+
+.show_content {
+  text-align: justify;
+  margin: 10px 26px;
+}
+
+.show_buttons {
+  margin: 10px;
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
 }

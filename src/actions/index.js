@@ -45,6 +45,6 @@ export function deletePost(id, callback) {
 
 	return {
 		type: DELETE_POST,
-		payload: id
+		payload: request
 	}
 }

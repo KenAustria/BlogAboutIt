@@ -68,13 +68,16 @@ class PostsNew extends Component {
 							<Field label="Content" name="content" component={this.renderFieldArea} />
 						</form>
 						<div className="new_buttons">
-							<Button variant="outlined" color="secondary">
-								<Link to="/" className="remove_link">Cancel</Link>
-							</Button>
+							<Link to="/" className="remove_link">
+								<Button variant="outlined" color="secondary">Cancel</Button>
+							</Link>
 							<div className="divider"></div>
-							<Button variant="outlined" color="primary" type="submit">
-								<Link to="/" className="remove_link">Submit</Link>
-							</Button>
+							<Link to="/" className="remove_link">
+								<Button variant="outlined" color="primary" type="submit">
+									Submit
+								</Button>
+							</Link>
+							
 						</div>
 					</div>
 			</div>

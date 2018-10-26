@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions/index';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class PostsShow extends Component {
 	componentDidMount() {
-		if (!this.props.post) {
-			const { id } = this.props.match.params;
-			this.props.fetchPost(id);
-		}
+		const { id } = this.props.match.params;
+		this.props.fetchPost(id);
 	}
 
 	onDelete = () => {
@@ -19,24 +18,39 @@ class PostsShow extends Component {
 	}
 
 	render() {
-		const post = this.props;
+		const { post } = this.props;
 		if (!post) {
 			return <div>Loading..</div>
 		}
 		return (
-			<div>
-			 <h1>Title {post.title}</h1>
-			 <h3>Category {post.category}</h3>
-			 <h3>Content {post.content}</h3>
-			 <Link to="/">Back To Index</Link>
-			 <button onClick={this.onDelete}>Delete</button>
+			<div className="show_group">
+			 <div className="show_title">
+			 	<h1>{post.title}</h1>
+			 </div>
+			 <div className="show_categories">
+			 	<h4>{post.categories}</h4>
+			 </div>
+			 <div className="show_content">
+			 	<p>Content {post.content}</p>	 
+			 </div>
+			 <div className="show_buttons">
+				<Link to="/" className="remove_link">
+					<Button variant="outlined" color="primary">
+						Back To Index
+					</Button>
+				</Link>
+				<div className="divider"></div>
+				<Button onClick={this.onDelete} variant="outlined" color="secondary">
+					Delete
+				</Button>
+			 </div>
 			</div>
 		 );
  	}
 }
 
-function mapStateToProps({posts}, ownProps) {
-	return { post: posts[ownProps.match.params.id] }
+function mapStateToProps({ posts }, ownProps) {
+	return { post: posts[ownProps.match.params.id] };
 }
 
 export default connect(mapStateToProps, { fetchPost, deletePost })(PostsShow);

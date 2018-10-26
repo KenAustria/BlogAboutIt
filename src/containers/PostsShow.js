@@ -6,17 +6,16 @@ import { Link } from 'react-router-dom';
 class PostsShow extends Component {
 	componentDidMount() {
 		if (!this.props.post) {
-			const id = this.props.match.params;
+			const { id } = this.props.match.params;
 			this.props.fetchPost(id);
 		}
 	}
 
-	onDelete() {
+	onDelete = () => {
 		const { id } = this.props.match.params;
-		this.props.deletePost(id)
-			.then(() => {
-				this.props.history.push("/");
-			});
+		this.props.deletePost(id, () => {
+			this.props.history.push("/");
+		});
 	}
 
 	render() {

@@ -3,19 +3,20 @@ import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
-import { createPost } from "../actions/index";
+import { createPost } from "../../actions/index";
+import styles from './PostsNew.module.css';
 
 class PostsNew extends Component {
   renderField(field) {
     const {meta: { touched, error }} = field;
-    const className = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
+		const errorStyle = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
 
     return (
-      <div className={className}>
-        <div className="new_labels">
+      <div className={errorStyle}>
+        <div className={styles.new_labels}>
           <label>{field.label}</label>
         </div>
-        <input type="text" className="form_input" {...field.input} />
+        <input type="text" className={styles.form_input} {...field.input} />
         <div className="text-help">{touched ? error : ""}</div>
       </div>
     );
@@ -23,14 +24,14 @@ class PostsNew extends Component {
 
   renderFieldArea(field) {
     const {meta: { touched, error }} = field;
-    const className = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
+    const errorStyle = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
 
     return (
-      <div className={className}>
-        <div className="new_labels">
+      <div className={errorStyle}>
+        <div className={styles.new_labels}>
           <label>{field.label}</label>
         </div>
-        <textarea type="text" className="form_input" {...field.input} />
+        <textarea type="text" className={styles.form_input} {...field.input} />
         <div className="text-help">{touched ? error : ""}</div>
       </div>
     );
@@ -46,18 +47,18 @@ class PostsNew extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="new_group">
-        <div className="new_title">Create New</div>
-        <div className="form_group">
+      <div className={styles.new_group}>
+        <div className={styles.new_title}>Create New</div>
+        <div className={styles.form_group}>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <Field label="Title" name="title" component={this.renderField} />
             <Field label="Categories" name="categories" component={this.renderField} />
             <Field label="Content" name="content" component={this.renderFieldArea} />
-						<div className="new_buttons">
-							<Link to="/" className="remove_link">
+						<div className={styles.new_buttons}>
+							<Link to="/" className={styles.remove_link}>
               	<Button variant="outlined" color="secondary">Cancel</Button>
             	</Link>
-							<div className="divider"></div>
+							<div className={styles.divider}></div>
             	<Button variant="outlined" color="primary" type="submit">Submit</Button>
 						</div>
           </form>

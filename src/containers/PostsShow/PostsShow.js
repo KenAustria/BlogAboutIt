@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost } from '../../actions/index';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import styles from './PostsShow.module.css';
 
 class PostsShow extends Component {
 	componentDidMount() {
@@ -23,29 +24,25 @@ class PostsShow extends Component {
 			return <div>Loading..</div>
 		}
 		return (
-			<div className="show_group">
-			 <div className="show_title">
+			<div className={styles.show_group}>
+				<div className={styles.show_title}>
 			 	<h1>{post.title}</h1>
 			 </div>
-			 <div className="show_categories">
+				<div className={styles.show_categories}>
 			 	<h4>{post.categories}</h4>
 			 </div>
-			 <div className="show_content">
+				<div className={styles.show_content}>
 			 	<p>Content {post.content}</p>	 
 			 </div>
-			 <div className="show_buttons">
-				<Link to="/" className="remove_link">
-					<Button variant="outlined" color="primary">
-						Back To Index
-					</Button>
-				</Link>
-				<div className="divider"></div>
-				<Button onClick={this.onDelete} variant="outlined" color="secondary">
-					Delete
-				</Button>
-			 </div>
+				<div className={styles.show_buttons}>
+					<Link to="/" className={styles.remove_link}>
+						<Button variant="outlined" color="primary">Back To Index</Button>
+					</Link>
+					<div className={styles.divider}></div>
+					<Button onClick={this.onDelete} variant="outlined" color="secondary">Delete</Button>
+			 	</div>
 			</div>
-		 );
+		);
  	}
 }
 

@@ -13,29 +13,6 @@ body {
 }
 
 /* INDEX */
-.index_group {
-  border: 5px solid #eee;
-  border-radius: 25px;
-  box-shadow: 0 8px 9px #ccc;
-  width: 55%;
-  margin: 5% auto;
-  text-align: center;
-}
-
-.index_title {
-  color: white;
-  text-align: center;
-  margin: 10px;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  font-size: 80px;
-  font-weight: lighter;
-
-  animation-name: moveInLeft;
-	animation-duration: 1s;
-	animation-timing-function: ease-out;
-}
-
 @keyframes moveInLeft {
 	0% {
 		opacity: 0;
@@ -48,15 +25,6 @@ body {
 		opacity: 1;
 		transform: translate(0);
 	}
-}
-
-.index_description {
-  color: #a790a5;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 20px;
-  text-align: center;
-  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInRight {
@@ -73,15 +41,6 @@ body {
 	}
 }
 
-.add_button {
-  animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards;
-}
-
-.remove_link {
-  text-decoration: none;
-}
-
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;
@@ -94,120 +53,5 @@ body {
 	}
 }
 
-.index_footer {
-  margin: 20px;
-}
-
-.list_item_text {
-  text-align: justify;
-  text-transform: uppercase;
-  border: solid 1px #eee;
-  font-size: 28px;
-  font-weight: lighter;
-  color: #a790a5;
-  margin: auto;
-  padding: 10px 15px;
-}
-
 /* NEW */
-.new_group {
-  border: 5px solid #eee;
-  border-radius: 25px;
-  box-shadow: 0 8px 9px #ccc;
-  width: 55%;
-  margin: 5% auto;
-}
-
-.new_title {
-  color: white;
-  text-align: justify;
-  margin: 10px 26px;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  font-size: 40px;
-  font-weight: lighter;
-
-  animation-name: moveInLeft;
-	animation-duration: 1s;
-	animation-timing-function: ease-out;
-}
-
-.form_group {
-  padding: 1px 1px;
-}
-
-.form_group_field {
-  text-align: justify;
-  margin: auto 30px;
-  padding: 10px 0px;
-}
-
-.form_input {
-  width: 100%;
-  line-height: 1.5;
-  font-size: 15px;
-  padding: 0px 5px;
-}
-
-.new_buttons {
-  margin: 10px;
-  animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards;
-}
-
-.divider {
-  width: 8px;
-  height: auto;
-  display: inline-block;
-}
-
-.invalid_feedback {
-  color: red;
-}
-
-.new_labels {
-  margin: 0px 0px 10px 0px;
-}
-
 /* SHOW */
-.show_group {
-  border: 5px solid #eee;
-  border-radius: 25px;
-  box-shadow: 0 8px 9px #ccc;
-  width: 55%;
-  margin: 5% auto;
-}
-
-.show_title {
-  color: white;
-  text-align: left;
-  margin: 10px 26px;
-  text-transform: uppercase;
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  font-weight: lighter;
-
-  animation-name: moveInLeft;
-	animation-duration: 1s;
-	animation-timing-function: ease-out;
-}
-
-.show_categories {
-  color: #a790a5;
-  text-transform: uppercase;
-  margin: 10px 26px;
-  text-align: left;
-  font-weight: lighter;
-  animation: moveInRight 1s ease-out;
-}
-
-.show_content {
-  text-align: justify;
-  margin: 10px 26px;
-}
-
-.show_buttons {
-  margin: 10px;
-  animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards;
-}

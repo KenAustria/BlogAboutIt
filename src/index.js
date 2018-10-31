@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import PostsIndex from "./containers/PostsIndex";
-import PostsNew from "./containers/PostsNew";
-import PostsShow from './containers/PostsShow';
+import PostsIndex from "./containers/PostsIndex/PostsIndex";
+import PostsNew from "./containers/PostsNew/PostsNew";
+import PostsShow from './containers/PostsShow/PostsShow';
 import * as serviceWorker from "./serviceWorker";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import { Provider } from "react-redux";

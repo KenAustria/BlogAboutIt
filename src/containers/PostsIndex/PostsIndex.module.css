@@ -51,7 +51,8 @@
 }
 
 .list_item_text:hover {
-  background: #eee;
+  background: rgb(192, 165, 165);
+  color: rgb(255, 255, 255);
 }
 
 .remove_link {

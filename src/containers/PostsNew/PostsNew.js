@@ -8,34 +8,28 @@ import styles from './PostsNew.module.css';
 
 class PostsNew extends Component {
   renderField(field) {
-    const {meta: { touched, error }} = field;
-		const errorStyle = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
-
-    return (
-      <div className={errorStyle}>
-        <div className={styles.new_labels}>
-          <label>{field.label}</label>
-        </div>
-        <input type="text" className={styles.form_input} {...field.input} />
-        <div className="text-help">{touched ? error : ""}</div>
-      </div>
-    );
-  }
+		return (
+			<div className={styles.form_group_field}>
+				<label>{field.label}</label>
+				<input type="text" className={styles.form_input} {...field.input} />
+				<div className={styles.invalid_feedback}>
+					{field.meta.touched ? field.meta.error : ''}
+				</div>
+			</div>
+		);
+	}
 
   renderFieldArea(field) {
-    const {meta: { touched, error }} = field;
-    const errorStyle = `form_group_field ${touched && error ? "invalid_feedback" : ""}`;
-
-    return (
-      <div className={errorStyle}>
-        <div className={styles.new_labels}>
-          <label>{field.label}</label>
-        </div>
-        <textarea type="text" className={styles.form_input} {...field.input} />
-        <div className="text-help">{touched ? error : ""}</div>
-      </div>
-    );
-  }
+		return (
+			<div className={styles.form_group_field}>
+				<label>{field.label}</label>
+				<textarea type="text" className={styles.form_input} {...field.input} />
+				<div className={styles.invalid_feedback}>
+					{field.meta.touched ? field.meta.error : ''}
+				</div>
+			</div>
+		);
+	}
 
   onSubmit(values) {
 		this.props.createPost(values, () => {

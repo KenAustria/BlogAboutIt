@@ -24,7 +24,8 @@ Complete
 serve at ```localhost: 3000```
 
 ### Demo
-*Pending*
+![](https://media.giphy.com/media/fQPSGkA0t1cVMS4ZUG/giphy.gif)
+![](https://media.giphy.com/media/2Ys4kPBU4OBob0kkHo/giphy.gif)
 
 ### Unit Test
 *Pending*
